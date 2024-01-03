@@ -12,4 +12,20 @@ body {
   font-weight: 700;
   background-color: hsl(185, 41%, 84%);
   min-height: 100vh;
+  align-items: center;
+}
+
+input,
+label {
+  display: block;
+}
+
+.App {
+  width: 66vw;
+
+  display: grid;
+  grid-template-columns: 34rem 44rem;
+  column-gap: 4rem;
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
 }
