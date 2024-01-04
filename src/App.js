@@ -8,14 +8,16 @@ export default function App() {
 
 function TipCalculator() {
   return (
-    <div>
-      <BillInput />
-      <SelectPercentage> Select Tip %</SelectPercentage>
-      <NumberOfPeople />
-      <TipAmount />
-      <Total />
-      <Reset />
-    </div>
+    <>
+      <div>
+        <BillInput />
+        <SelectPercentage> Select Tip %</SelectPercentage>
+        <NumberOfPeople />
+        <TipAmount />
+        <Total />
+        <Reset />
+      </div>
+    </>
   );
 }
 
@@ -37,7 +39,9 @@ function SelectPercentage({ children }) {
       <button value="15">15%</button>
       <button value="25">25%</button>
       <button value="50">50%</button>
-      <button value="0">Custom</button>
+      <button className="customButton" value="0">
+        Custom
+      </button>
     </div>
   );
 }
@@ -50,6 +54,12 @@ function NumberOfPeople() {
     </div>
   );
 }
-function TipAmount() {}
+function TipAmount() {
+  return (
+    <div>
+      <h3>Tip Amount</h3>
+    </div>
+  );
+}
 function Total() {}
 function Reset() {}

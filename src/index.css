@@ -1,4 +1,4 @@
-@import url("https://fonts.google.com/specimen/Space+Mono");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -15,17 +15,44 @@ body {
   align-items: center;
 }
 
-input,
 label {
   display: block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: hsl(186, 14%, 43%);
+}
+
+input {
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  font-size: 24px;
 }
 
 .App {
-  width: 66vw;
-
-  display: grid;
-  grid-template-columns: 34rem 44rem;
-  column-gap: 4rem;
-  align-items: center;
+  width: 800px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 300px;
+  border-radius: 25px;
+  padding: 50px;
+  padding-right: 400px;
   background-color: hsl(0, 0%, 100%);
+}
+
+button {
+  font-size: 24px;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 5px;
+  border: none;
+  color: hsl(189, 41%, 97%);
+  font-family: "Space Mono", sans-serif;
+  width: 100px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.customButton {
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
 }
