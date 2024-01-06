@@ -11,7 +11,7 @@ function TipCalculator() {
     <>
       <div>
         <BillInput />
-        <SelectPercentage> Select Tip %</SelectPercentage>
+        <SelectPercentage />
         <NumberOfPeople />
         <TipAmount />
         <Total />
@@ -30,36 +30,40 @@ function BillInput() {
   );
 }
 
-function SelectPercentage({ children }) {
+function SelectPercentage() {
   return (
-    <div>
-      <label>{children}</label>
-      <button value="5">5%</button>
-      <button value="10">10%</button>
-      <button value="15">15%</button>
-      <button value="25">25%</button>
-      <button value="50">50%</button>
-      <button className="customButton" value="0">
-        Custom
-      </button>
-    </div>
+    <>
+      <div>
+        <label className="selectTip">Select Tip %</label>
+        <button value="5">5%</button>
+        <button value="10">10%</button>
+        <button value="15">15%</button>
+      </div>
+      <div>
+        <button value="25">25%</button>
+        <button value="50">50%</button>
+        <button className="customButton" value="0">
+          Custom
+        </button>
+      </div>
+    </>
   );
 }
 
 function NumberOfPeople() {
   return (
-    <div>
+    <div className="numberOfPeople">
       <label>Number of People</label>
       <input type="number" placeholder="0" />
     </div>
   );
 }
 function TipAmount() {
-  return (
-    <div>
-      <h3>Tip Amount</h3>
-    </div>
-  );
+  //   return (
+  //     // <div>
+  //     //   <h3>Tip Amount</h3>
+  //     // </div>
+  //   );
 }
 function Total() {}
 function Reset() {}
