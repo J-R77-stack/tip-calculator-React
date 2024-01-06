@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 body {
   font-family: "Space Mono", sans-serif;
   color: #252525;
@@ -24,9 +31,19 @@ label {
 input {
   background-color: hsl(189, 41%, 97%);
   border: none;
+  outline-color: none;
   font-size: 24px;
   width: 310px;
   height: 40px;
+}
+
+input:hover {
+  cursor: pointer;
+  outline-color: hsl(172, 67%, 45%);
+}
+input:focus {
+  cursor: pointer;
+  outline-color: hsl(172, 67%, 45%);
 }
 
 .App {
@@ -54,15 +71,99 @@ button {
   margin-top: 5px;
 }
 
+button:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
 .selectTip {
   padding-top: 15px;
 }
 
 .customButton {
+  font-size: 22px;
   background-color: hsl(189, 41%, 97%);
   color: hsl(186, 14%, 43%);
+  border-radius: 5px;
+  border: none;
+  font-family: "Space Mono", sans-serif;
+  width: 100px;
+  height: 50px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .numberOfPeople {
   padding-top: 10px;
+}
+
+.tipAmount {
+  position: relative;
+  left: 380px;
+  bottom: 340px;
+  background-color: hsl(183, 100%, 15%);
+  width: 340px;
+  padding-left: 20px;
+  padding-top: 40px;
+  border-radius: 25px;
+}
+
+.headingThree {
+  font-family: "Space Mono", sans-serif;
+  color: hsl(0, 0%, 100%);
+  position: relative;
+  bottom: 30px;
+}
+
+.para {
+  color: hsl(184, 14%, 56%);
+  position: relative;
+  bottom: 30px;
+}
+
+.amount1 {
+  color: hsl(172, 67%, 45%);
+  font-size: 50px;
+  position: relative;
+  left: 30px;
+  top: 30px;
+}
+
+.totalAmount {
+  position: relative;
+  left: 380px;
+  bottom: 370px;
+  background-color: hsl(183, 100%, 15%);
+  width: 340px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.amount2 {
+  color: hsl(172, 67%, 45%);
+  font-size: 50px;
+  position: relative;
+  left: 87px;
+  top: 30px;
+}
+
+.resetButton {
+  color: hsl(186, 14%, 43%);
+  background-color: #007f80;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 300px;
+}
+
+.buttonBackground {
+  position: relative;
+  left: 380px;
+  bottom: 400px;
+  background-color: hsl(183, 100%, 15%);
+  width: 340px;
+  padding-left: 20px;
+  padding-top: 50px;
+  border-radius: 25px;
 }
