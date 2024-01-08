@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function App() {
   return (
     <div className="App">
@@ -7,25 +9,28 @@ export default function App() {
 }
 
 function TipCalculator() {
+  const [bill, setBill] = useState("");
   return (
     <div>
-      <BillInput />
+      <BillInput bill={bill} onSetBill={setBill} />
       <SelectPercentage />
       <NumberOfPeople />
       <TipAmount />
-      <Total />
+      <Total bill={bill} />
       <Reset />
     </div>
   );
 }
 
-function BillInput() {
+function BillInput({ bill, onSetBill }) {
   return (
     <div>
       <label>Bill</label>
       <input
-        type="number"
-        placeholder="$                                       0"
+        type="text"
+        placeholder=" $                                       0"
+        value={bill}
+        onChange={(e) => onSetBill(Number(e.target.value))}
       />
     </div>
   );
@@ -56,7 +61,7 @@ function NumberOfPeople() {
       <label>Number of People</label>
       <input
         type="number"
-        placeholder="👤                                      0"
+        placeholder=" 👤                                      0"
       />
     </div>
   );
@@ -71,11 +76,11 @@ function TipAmount() {
     </div>
   );
 }
-function Total() {
+function Total({ bill }) {
   return (
     <div className="totalAmount">
       <h3 className="headingThree">
-        Total <span className="amount2"> $0.00</span>
+        Total <span className="amount2"> ${bill}</span>
       </h3>
       <p className="para">/ person</p>
     </div>
