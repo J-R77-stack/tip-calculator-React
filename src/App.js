@@ -11,11 +11,8 @@ export default function App() {
 function TipCalculator() {
   const [bill, setBill] = useState("");
   const [percentage1, setPercentage1] = useState(0);
-  const [change, setChangeBill] = useState("");
 
   const tip = (bill * percentage1) / 100;
-
-  const tip2 = (bill * change) / 100;
 
   return (
     <div>
@@ -23,12 +20,11 @@ function TipCalculator() {
       <SelectPercentage
         percentage={percentage1}
         onClick={setPercentage1}
-        onChangeBill={setChangeBill}
-        change={change}
+        onChange={setPercentage1}
       />
       <NumberOfPeople />
-      <TipAmount tip={tip} tip2={tip2} />
-      <Total bill={bill} tip={tip} tip2={tip2} />
+      <TipAmount tip={tip} />
+      <Total bill={bill} tip={tip} />
       <Reset />
     </div>
   );
@@ -39,8 +35,9 @@ function BillInput({ bill, onSetBill }) {
     <div>
       <label>Bill</label>
       <input
+        className="input1"
         type="text"
-        placeholder=" $                                       0"
+        placeholder="                                       0"
         value={bill}
         onChange={(e) => onSetBill(Number(e.target.value))}
       />
@@ -48,7 +45,7 @@ function BillInput({ bill, onSetBill }) {
   );
 }
 
-function SelectPercentage({ onClick, change, onChangeBill }) {
+function SelectPercentage({ onClick, onChange }) {
   return (
     <>
       <div>
@@ -74,9 +71,8 @@ function SelectPercentage({ onClick, change, onChangeBill }) {
         <input
           className="customButton"
           type="number"
-          placeholder=" Custom"
-          value={change}
-          onChange={(e) => onChangeBill(Number(e.target.value))}
+          placeholder="Custom"
+          onChange={(e) => onChange(Number(e.target.value))}
         />
       </div>
     </>
@@ -88,36 +84,28 @@ function NumberOfPeople() {
     <div className="numberOfPeople">
       <label>Number of People</label>
       <input
+        className="input2"
         type="number"
-        placeholder=" 👤                                      0"
+        placeholder="                                       0"
       />
     </div>
   );
 }
-function TipAmount({ tip, tip2 }) {
+function TipAmount({ tip }) {
   return (
     <div className="tipAmount">
       <h3 className="headingThree">
-        Tip Amount{" "}
-        <span className="amount1">
-          {" "}
-          ${tip}
-          {tip2}
-        </span>
+        Tip Amount <span className="amount1">${tip}</span>
       </h3>
       <p className="para">/ person</p>
     </div>
   );
 }
-function Total({ bill, tip, tip2 }) {
+function Total({ bill, tip }) {
   return (
     <div className="totalAmount">
       <h3 className="headingThree">
-        Total{" "}
-        <span className="amount2">
-          {" "}
-          ${bill + tip} {bill + tip2}
-        </span>
+        Total <span className="amount2"> ${bill + tip}</span>
       </h3>
       <p className="para">/ person</p>
     </div>

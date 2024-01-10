@@ -28,13 +28,30 @@ label {
   color: hsl(186, 14%, 43%);
 }
 
-input {
+.input1 {
   background-color: hsl(189, 41%, 97%);
   border: none;
   outline-color: none;
   font-size: 24px;
   width: 310px;
   height: 40px;
+  background-image: url(./images/icon-dollar.svg);
+  background-repeat: no-repeat;
+
+  background-size: 18px;
+}
+
+.input2 {
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  outline-color: none;
+  font-size: 24px;
+  width: 310px;
+  height: 40px;
+  background-image: url(./images/icon-person.svg);
+  background-repeat: no-repeat;
+
+  background-size: 18px;
 }
 
 input:hover {
@@ -77,6 +94,12 @@ button:hover {
   cursor: pointer;
 }
 
+button:focus {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
 .selectTip {
   padding-top: 15px;
 }
@@ -93,8 +116,22 @@ button:hover {
   margin-right: 5px;
   margin-bottom: 10px;
   margin-top: 5px;
+  text-align: center;
 }
 
+.customButton:focus {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  background-image: url(./images/percentage-sign-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-position: 80% 50%;
+  background-size: 18px;
+}
+
+.customButton:focus::placeholder {
+  color: transparent;
+}
 .numberOfPeople {
   padding-top: 10px;
 }
