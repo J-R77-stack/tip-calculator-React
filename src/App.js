@@ -14,6 +14,11 @@ function TipCalculator() {
 
   const tip = (bill * percentage1) / 100;
 
+  function handleReset() {
+    setBill("");
+    setPercentage1(0);
+  }
+
   return (
     <div>
       <BillInput bill={bill} onSetBill={setBill} />
@@ -25,7 +30,7 @@ function TipCalculator() {
       <NumberOfPeople />
       <TipAmount tip={tip} />
       <Total bill={bill} tip={tip} />
-      <Reset />
+      <Reset onReset={handleReset} />
     </div>
   );
 }
@@ -36,8 +41,8 @@ function BillInput({ bill, onSetBill }) {
       <label>Bill</label>
       <input
         className="input1"
-        type="text"
-        placeholder="                                       0"
+        type="number"
+        placeholder="         0"
         value={bill}
         onChange={(e) => onSetBill(Number(e.target.value))}
       />
@@ -83,11 +88,7 @@ function NumberOfPeople() {
   return (
     <div className="numberOfPeople">
       <label>Number of People</label>
-      <input
-        className="input2"
-        type="number"
-        placeholder="                                       0"
-      />
+      <input className="input2" type="number" placeholder="   0" />
     </div>
   );
 }
@@ -95,7 +96,10 @@ function TipAmount({ tip }) {
   return (
     <div className="tipAmount">
       <h3 className="headingThree">
-        Tip Amount <span className="amount1">${tip}</span>
+        Tip Amount
+        <span type="number" className="amount1">
+          ${Math.floor(tip)}
+        </span>
       </h3>
       <p className="para">/ person</p>
     </div>
@@ -105,16 +109,21 @@ function Total({ bill, tip }) {
   return (
     <div className="totalAmount">
       <h3 className="headingThree">
-        Total <span className="amount2"> ${bill + tip}</span>
+        Total
+        <span className="amount2" type="number">
+          ${Math.floor(bill + tip)}
+        </span>
       </h3>
       <p className="para">/ person</p>
     </div>
   );
 }
-function Reset() {
+function Reset({ onReset }) {
   return (
     <div className="buttonBackground">
-      <button className="resetButton">RESET</button>
+      <button className="resetButton" onClick={onReset}>
+        RESET
+      </button>
     </div>
   );
 }

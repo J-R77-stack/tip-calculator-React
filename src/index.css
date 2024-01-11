@@ -37,8 +37,10 @@ label {
   height: 40px;
   background-image: url(./images/icon-dollar.svg);
   background-repeat: no-repeat;
-
+  background-position-x: 10px;
+  background-position-y: center;
   background-size: 18px;
+  padding-left: 230px;
 }
 
 .input2 {
@@ -50,8 +52,10 @@ label {
   height: 40px;
   background-image: url(./images/icon-person.svg);
   background-repeat: no-repeat;
-
+  background-position-x: 10px;
+  background-position-y: center;
   background-size: 18px;
+  padding-left: 270px;
 }
 
 input:hover {
@@ -123,7 +127,6 @@ button:focus {
   background-color: hsl(172, 67%, 45%);
   color: hsl(0, 0%, 100%);
   cursor: pointer;
-  background-image: url(./images/percentage-sign-svgrepo-com.svg);
   background-repeat: no-repeat;
   background-position: 80% 50%;
   background-size: 18px;
