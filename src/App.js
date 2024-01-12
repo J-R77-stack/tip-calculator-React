@@ -11,12 +11,14 @@ export default function App() {
 function TipCalculator() {
   const [bill, setBill] = useState("");
   const [percentage1, setPercentage1] = useState(0);
+  const [numOfPeople, setNumOfPeople] = useState(0);
 
-  const tip = (bill * percentage1) / 100;
+  const tip = (bill * percentage1) / 100 / numOfPeople;
 
   function handleReset() {
     setBill("");
     setPercentage1(0);
+    setNumOfPeople(0);
   }
 
   return (
@@ -27,7 +29,7 @@ function TipCalculator() {
         onClick={setPercentage1}
         onChange={setPercentage1}
       />
-      <NumberOfPeople />
+      <NumberOfPeople numOfPeople={numOfPeople} onSelect={setNumOfPeople} />
       <TipAmount tip={tip} />
       <Total bill={bill} tip={tip} />
       <Reset onReset={handleReset} />
@@ -84,11 +86,26 @@ function SelectPercentage({ onClick, onChange }) {
   );
 }
 
-function NumberOfPeople() {
+function NumberOfPeople({ numOfPeople, onSelect }) {
   return (
     <div className="numberOfPeople">
       <label>Number of People</label>
-      <input className="input2" type="number" placeholder="   0" />
+
+      <select
+        className="input2"
+        value={numOfPeople}
+        onChange={(e) => onSelect(Number(e.target.value))}>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
     </div>
   );
 }
