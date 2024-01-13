@@ -11,6 +11,7 @@ export default function App() {
 function TipCalculator() {
   const [bill, setBill] = useState("");
   const [percentage1, setPercentage1] = useState(0);
+  const [numOfPeople, setNumOfPeople] = useState(1);
 
   const tip = (bill * percentage1) / 100;
 
@@ -18,6 +19,7 @@ function TipCalculator() {
     setBill("");
     setPercentage1(0);
     document.getElementById("customInput").value = "";
+    setNumOfPeople(1);
   }
 
   return (
@@ -28,9 +30,9 @@ function TipCalculator() {
         onClick={setPercentage1}
         onChange={setPercentage1}
       />
-      <NumberOfPeople />
-      <TipAmount tip={tip} />
-      <Total bill={bill} tip={tip} />
+      <NumberOfPeople numOfPeople={numOfPeople} onSelect={setNumOfPeople} />
+      <TipAmount tip={tip} numOfPeople={numOfPeople} />
+      <Total bill={bill} tip={tip} numOfPeople={numOfPeople} />
       <Reset onReset={handleReset} />
     </div>
   );
@@ -85,12 +87,15 @@ function SelectPercentage({ onClick, onChange }) {
   );
 }
 
-function NumberOfPeople() {
+function NumberOfPeople({ numOfPeople, onSelect }) {
   return (
     <div className="numberOfPeople">
       <label>Number of People</label>
 
-      <select className="input2">
+      <select
+        className="input2"
+        value={numOfPeople}
+        onChange={(e) => onSelect(Number(e.target.value))}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -105,26 +110,26 @@ function NumberOfPeople() {
     </div>
   );
 }
-function TipAmount({ tip }) {
+function TipAmount({ tip, numOfPeople }) {
   return (
     <div className="tipAmount">
       <h3 className="headingThree">
         Tip Amount
         <span type="number" className="amount1">
-          ${Math.trunc(tip / 3)}
+          ${Math.round(tip / numOfPeople)}
         </span>
       </h3>
       <p className="para">/ person</p>
     </div>
   );
 }
-function Total({ bill, tip }) {
+function Total({ bill, tip, numOfPeople }) {
   return (
     <div className="totalAmount">
       <h3 className="headingThree">
         Total
         <span className="amount2" type="number">
-          ${Math.trunc((bill + tip) / 3)}
+          ${Math.round((bill + tip) / numOfPeople)}
         </span>
       </h3>
       <p className="para">/ person</p>
